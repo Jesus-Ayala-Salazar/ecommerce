@@ -6,89 +6,115 @@
   <meta name="author" content="Your name here">
   <meta name="description" content="Ecommerce website">
   <!--Online scripts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!--Local scripts-->
   <!--Stylesheets-->
   <link rel="stylesheet" href="css/style.css"><!--local stylesheet-->
-  <title>Title</title>
+  <title>Products</title>
 </head>
-<body class="">
-  <nav class="">
-    <ul class="">
-      <li class="">
-        
-      </li>
-      <li class="">
-      
-      </li>
-      <li class="">
-        <a href="" class="">
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
+<body>  
 <main>
-   <h1>Products</h1>
+   <script src="index.js"></script>
+    
+   <!-- top bar, holds site title + menu-button -->
+   <div class="navbar">
+     <a href="home.html">TITLE</a>
+     <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
+   </div>
+   <!-- end top bar -->
+
+   <!-- collapsible menu, hidden until menu-button is clicked on -->
+   <div id="menu" class="menu">
+     <button onclick="closeMenu()" class="navbar-button"><em class="material-icons sz-36 open-menu-button" id="open-menu-button">close</em></button>
+
+     <!-- side menu navigation sections-->
+     <h3><a href="home.html" onclick="closeMenu()">Home</a></h3>
+     <h3><a href="products.html" onclick="closeMenu()">Products</a></h3>
+     <h3><a href="team.html" onclick="closeMenu()">Team</a></h3>
+   </div>
+   <!-- end collapsible menu -->
+
+   <h1 class="center">Products</h1>
    
-   <table class="productsTable">
+   <table class="productsTable center">
       <tbody>
+         <tr>
+            <th class="col-3"></th>
+            <th class="col-3"></th>
+            <th class="col-3"></th>
+            <th class="col-3"></th>
+          </tr>
          <!-- First product row -->
          <tr>
-           <td class="productsTable">
-              <img src="./assets/worm.png" >
+           <td >
+              <img class="product-img" src="./assets/worm.png" >
               <h2>Green Worm</h2>
               <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Red Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Pink Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Purple Worm</h2>
-               <p>Price $4.99</p>
-            </td>
-            <td>
-               <img src="./assets/worm.png">
-               <h2>Orange Worm</h2>
                <p>Price $4.99</p>
             </td>
          </tr>
 
          <!-- Second product row -->
          <tr>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Blue Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Yellow Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>Black Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
+            <td >
+               <img class="product-img" src="./assets/worm.png">
                <h2>White Worm</h2>
                <p>Price $4.99</p>
             </td>
-            <td>
-               <img src="./assets/worm.png">
-               <h2>Grey Worm</h2>
+         </tr>
+
+         <tr>
+            <td >
+               <img class="product-img" src="./assets/worm.png">
+               <h2>Blue Worm</h2>
+               <p>Price $4.99</p>
+            </td>
+            <td >
+               <img class="product-img" src="./assets/worm.png">
+               <h2>Yellow Worm</h2>
+               <p>Price $4.99</p>
+            </td>
+            <td >
+               <img class="product-img" src="./assets/worm.png">
+               <h2>Black Worm</h2>
+               <p>Price $4.99</p>
+            </td>
+            <td >
+               <img class="product-img" src="./assets/worm.png">
+               <h2>White Worm</h2>
                <p>Price $4.99</p>
             </td>
          </tr>
+
       </tbody>
    </table>
 </main>
