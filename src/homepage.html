@@ -16,30 +16,49 @@
 
 <style>
     h1 {
+        font-size: 3em;
+        max-width: 100%;
         background-color: lightblue;
-    }
-    .btn-group button {
-        background-color: lightblue;
-        border: 1px solid black;
-        color: black;
-        padding: 10px 24px;
-        cursor: pointer;
-        float: left;
+        text-align: center;
+        padding: 2%;
     }
 
-    .btn-group:after {
-        content: "";
-        clear: both;
-        display: table;
+    .companyDescription {
+        font-size:80%;
+        margin: auto;
+        width: 60%;
+        background-color: beige;
+        text-align: center;
+        border: 3px solid lightblue;
+        padding: 1%;
     }
+    /*h2 {*/
+    /*    max-width: 80%;*/
+    /*    background-color: lightgray;*/
+    /*    text-align: center;*/
+    /*}*/
+    /*.btn-group button {*/
+    /*    background-color: lightblue;*/
+    /*    border: 1px solid black;*/
+    /*    color: black;*/
+    /*    padding: 10px 24px;*/
+    /*    cursor: pointer;*/
+    /*    float: left;*/
+    /*}*/
 
-    .btn-group button:not(:last-child) {
-        border-right: none;
-    }
+    /*.btn-group:after {*/
+    /*    content: "";*/
+    /*    clear: both;*/
+    /*    display: table;*/
+    /*}*/
 
-    .btn-group button:hover {
-        background-color: cadetblue;
-    }
+    /*.btn-group button:not(:last-child) {*/
+    /*    border-right: none;*/
+    /*}*/
+
+    /*.btn-group button:hover {*/
+    /*    background-color: cadetblue;*/
+    /*}*/
 
     {box-sizing:border-box}
 
@@ -47,7 +66,16 @@
     .slideshow-container {
         max-width: 60%;
         position: relative;
+        margin-top:2%;
+        margin-left: 20%;
+
+    }
+    .bottomText {
         margin: auto;
+        width: 60%;
+        text-align: center;
+        padding: 0.5%;
+        font-size:0.75em;
     }
 
 
@@ -150,12 +178,15 @@
     <div>
         <h1>Early Birds</h1>
     </div>
-    <h2>Enter description of our store here</h2>
-    <div class="btn-group" style="width:100%">
-        <button onclick= "location.href = 'products.html';" style="width:33%">Products</button>
-        <button onclick= "location.href = 'team.html';" style="width:33%">Management Info</button>
-        <button onclick= "location.href = 'cart.html';" style="width:33%">Shopping Cart</button>
+    <div class="companyDescription">
+        <h2>Enter description of our store here</h2>
     </div>
+
+<!--    <div class="btn-group" style="width:100%">-->
+<!--        <button onclick= "location.href = 'products.html';" style="width:33%">Products</button>-->
+<!--        <button onclick= "location.href = 'team.html';" style="width:33%">Management Info</button>-->
+<!--        <button onclick= "location.href = 'cart.html';" style="width:33%">Shopping Cart</button>-->
+<!--    </div>-->
 
 
     <div class="slideshow-container">
@@ -187,7 +218,10 @@
     </div>
 
 
-    <p>copy rights info, contact info, and maybe another link to our management info?</p>
+    <div class="bottomText">
+        <p>copy rights info, contact info, and maybe another link to our management info?</p>
+    </div>
+
 </main>
 
 <script>
