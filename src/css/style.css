@@ -6,8 +6,12 @@ body {
    margin-top: 65px;
 }
 
-.productsTable {
-   width: 100%;
+h1 {
+   font-size: 3em;
+   max-width: 100%;
+   background-color: lightblue;
+   text-align: center;
+   padding: 2%;
 }
 
 .center {
@@ -16,19 +20,106 @@ body {
    text-align: center;
 }
 
-.team-table {
+/* Home Page */
+.companyDescription {
+   font-size:80%;
+   margin: auto;
+   width: 60%;
+   background-color: beige;
    text-align: center;
-   width: 70%;
-   border: none;
+   border: 3px solid lightblue;
+   padding: 1%;
 }
 
-.team-item {
-   border: none;
+/* Slideshow container */
+.slideshow-container {
+   max-width: 60%;
+   position: relative;
+   margin-top:2%;
+   margin-left: 20%;
+
 }
 
-.team-img {
-   width: 300px;
-   height:auto;
+.mySlides {
+   display: none;
+}
+
+.mySlides:first-child {
+   display: block;
+}
+
+.bottomText {
+   margin: auto;
+   width: 60%;
+   text-align: center;
+   padding: 0.5%;
+   font-size:0.75em;
+}
+
+.prev, .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   margin-top: -22px;
+   padding: 16px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+}
+
+.next {
+   right: 0;
+   border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+   background-color: rgba(0,0,0,0.8);
+}
+
+.numbertext {
+   color: #f2f2f2;
+   font-size: 12px;
+   padding: 8px 12px;
+   position: absolute;
+   top: 0;
+}
+
+.dot {
+   cursor: pointer;
+   height: 15px;
+   width: 15px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+}
+
+.fade {
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 1.5s;
+   animation-name: fade;
+   animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+}
+
+@keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+}
+
+/* Products/Individual Product Pages */
+
+.productsTable {
+   width: 100%;
 }
 
 .product-img {
@@ -68,6 +159,25 @@ body {
    padding: 20px;
 }
 
+/* Team Page */
+
+.team-table {
+   text-align: center;
+   width: 70%;
+   border: none;
+}
+
+.team-item {
+   border: none;
+}
+
+.team-img {
+   width: 300px;
+   height:auto;
+}
+
+
+
 /* top navigational bar + button css assets */
 .navbar {
    position: fixed;
@@ -76,6 +186,7 @@ body {
 
    top: 0;
    left: 0;
+   z-index: 1;
 
    width: 100%;
    height: auto;
