@@ -36,6 +36,38 @@ body {
    height: auto;
 }
 
+.ind-product-table {
+   width: 100%;
+   border: none;
+   text-align: left;
+}
+
+.ind-product-table img {
+   width: 100%;
+   height: auto;
+}
+
+.ind-product-table .cell {
+   padding: 10px;
+   border: none;
+}
+
+.order-table {
+   width: 90%;
+   border: solid 1px gray;
+   margin: 10px;
+   padding-bottom: 20px;
+}
+
+.order-table .cell {
+   padding: 10px;
+   border: none;
+}
+
+.submit {
+   padding: 20px;
+}
+
 /* top navigational bar + button css assets */
 .navbar {
    position: fixed;
