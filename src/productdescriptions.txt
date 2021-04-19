@@ -1,0 +1,23 @@
+1. <p>A daring and adventurous worm, with fur as deep red as a fresh tomato. Perfect for adventure-loving worm-lovers of all ages.</p><p>Price: $4.99</p><p>Product ID: redworm</p>
+
+2. <p>A fun and vibrant worm, with fur as bright orange as...an orange. Perfect for worm-lovers who also happen to be lovers of oranges.</p><p>Price: $4.99</p><p>Product ID: orangeworm</p>
+
+3. <p>A bright and happy worm, with fur as yellow and warm as the sun itself. Perfect for worm-lovers who like basking with their worms in the afternoon sun.</p><p>Price: $4.99</p><p>Product ID: yellowworm</p>
+
+4. <p>An all-natural, non-GMO worm, with organic fur as green as the needles of the evergreen pines. Perfect for the nature-loving worm-lovers in your life.</p><p>Price: $4.99</p><p>Product ID: greenworm</p>
+
+5. <p>A mystical and magical worm, with fur as dark blue as blueberries picked from forbidden faerie forests. Perfect for worm-lovers who enjoy a fairy-tale feel to their worm friends.</p><p>Price: $4.99</p><p>Product ID: darkblueworm</p>
+
+6. <p>A regal worm, with fur as pleasantly purple as a fresh and juicy grape. However, it is not actually grape flavoured.</p><p>Price: $4.99</p><p>Product ID: purpleworm</p>
+
+7. <p>A friendly and optimistic worm, with fur as bright pink as the flowers in spring. Perfect for a worm-lover who loves worms without having to deal with the pesky flowers that live in their soil.</p><p>Price: $4.99</p><p>Product ID: pinkworm</p>
+
+8. <p>A mischievous and fun-loving worm, with light-blue fur that reminds you of a clear summer sky. This one comes in sticker form, and is excited to take possession of your liver.</p><p>Price: $4.99</p><p>Product ID: lightblueworm</p>
+
+9. <p>A collection of worms, with fur colours plucked from all the way accross the rainbow. Find a worm that fits you and all your friends.</p><p>Price: $4.99</p><p>Product ID: assortedworms</p>
+
+10. <p>An eye-searing and thrill-seeking worm, with light green fur guaranteed to catch your eye. Perfect for worm-lovers who have a bad habit of losing their worms.</p><p>Price: $4.99</p><p>Product ID: lightgreenworm</p>
+
+11. <p>An pair of small, pure white worms, with uncoloured fur that will accent any piece you pair them with. In earring form, these white worms are perfect for the fashionable worm-lovers in your life.</p><p>Price: $4.99</p><p>Product ID: whiteworms</p>
+
+12. <p>A mysterious worm who has more secrets than you can imagine, with fur as dark as the deepest oceans. Perfect for a worm-lover in search of great mysteries.</p><p>Price: $4.99</p><p>Product ID: blackworm</p>
