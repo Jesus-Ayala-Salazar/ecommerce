@@ -118,12 +118,14 @@ h1 {
 
 /* Products/Individual Product Pages */
 
-.productsTable {
-   width: 100%;
+.product-img {
+   max-width: 50%;
+   height: auto;
 }
 
-.product-img {
-   width: 50%;
+.img-zoom:hover {
+   max-width: 60%;
+   width: 60%;
    height: auto;
 }
 

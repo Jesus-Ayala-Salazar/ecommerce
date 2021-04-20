@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Mia, James, Jesus">
+  <meta name="description" content="Ecommerce website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!--Online scripts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--Local scripts-->
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="./css/style.css"> <!--local stylesheet-->
+  <title>Early Birds</title>
+</head>
+<body>
+  <main>
+    <script src="./index.js"></script>
+    
+    <!-- top bar, holds site title + menu-button -->
+    <div class="navbar">
+      <a href="home.html">Early Birds</a>
+      <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
+    </div>
+    <!-- end top bar -->
+
+    <!-- collapsible menu, hidden until menu-button is clicked on -->
+    <div id="menu" class="menu">
+      <button onclick="closeMenu()" class="navbar-button"><em class="material-icons sz-36 open-menu-button" id="open-menu-button">close</em></button>
+
+      <!-- side menu navigation sections-->
+      <h3><a href="home.html" onclick="closeMenu()">Home</a></h3>
+      <h3><a href="products.html" onclick="closeMenu()">Products</a></h3>
+      <h3><a href="team.html" onclick="closeMenu()">Team</a></h3>
+    </div>
+    <!-- end collapsible menu -->
+
+    <h1>PRODUCT NAME</h1>
+
+    <!-- Row -->
+    <div class="center">
+        <div class="col-6 col-s-6">
+            <img class="product-img img-zoom" src="./assets/lightblueliverworm.jpg">
+        </div>
+        <div class="col-6 col-s-6">
+            <h3>Product Description</h3>
+            <p>A mischievous and fun-loving worm, with light-blue fur that reminds you of a clear summer sky. This one comes in sticker form, and is excited to take possession of your liver.</p>
+        </div>
+        <div class="col-6 col-s-12">
+            <p>Price: $4.99</p>
+            <p>Product ID: lightblueworm</p>
+        </div>
+    </div>
+    
+    <!-- Row -->
+    <div class="center col-12 col-s-12">
+        <h2>Order Form</h2>
+    </div>
+
+    <form id="orderform" method="GET">
+
+        <!-- Row -->
+        <div class="col-12 col-s-12 order-table">
+            <div class="col-12 col-s-12">
+                <h3>Order Information</h3>
+            </div>
+            <div class="col-4 col-s-4">
+                <label for="pid">Product ID:</label><br>
+                <input type="text" id="pid" name="pid">
+            </div>
+            <div class="col-4 col-s-4">
+                <label for="quantity">Quantity:</label><br>
+                <input type="number" id="quantity" name="quantity" min="1">
+            </div>
+            <div class="col-4 col-s-4">
+                <label for="ship">Shipping Method:</label><br>
+                <select name="ship" id="ship" value="--Select Shipping Method--">
+                <option value="Overnight">Overnight Shipping</option>
+                <option value="2-Day Expedited">2-Day Expedited Shipping</option>
+                <option value="6-Day Ground">6-day Ground Shipping</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Row -->
+        <div class="col-12 col-s-12 order-table">
+            <div class="col-12 col-s-12">
+                <h3>Billing</h3>
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname"><br>
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="phone">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="card">Credit Card Number:</label><br>
+                <input type="text" id="card" name="card">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="cvc">Security Code:</label><br>
+                <input type="text" id="cvc" name="cvc">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="email">Email Address:</label><br>
+                <input type="text" id="email" name="email">
+            </div>
+        </div>
+
+        <!-- Row -->
+        <div class="col-12 col-s-12 order-table">
+            <div class="col-12 col-s-12">
+                <h3>Shipping</h3>
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="street">Street:</label><br>
+                <input type="text" id="street" name="street">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="bldg">Building:</label><br>
+                <input type="text" id="bldg" name="bldg" placeholder="optional">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="state">State:</label><br>
+                <input type="text" id="state" name="state">
+            </div>
+            <div class="col-4 col-s-6">
+                <label for="zipcode">Zipcode:</label><br>
+                <input type="text" id="zipcode" name="zipcode">
+            </div>
+        </div>
+
+        <div class="submit col-12 col-s-12">
+            <input type="button" onclick="confirmOrder(this.form)" value="Submit">
+        </div>
+    </form>
+  </main>
+</body>
+</html>
