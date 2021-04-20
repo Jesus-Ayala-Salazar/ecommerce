@@ -123,7 +123,7 @@ h1 {
 }
 
 .product-img {
-   max-width: 100%;
+   width: 50%;
    height: auto;
 }
 
@@ -326,4 +326,3 @@ h1 {
       width: 100%;
    }
 }
-
