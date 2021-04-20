@@ -1,6 +1,6 @@
 Group members: Mia Vu, Jesus Salazar, James Hsiao
 
-Site opens up on the home page. All other pages are reachable from the collapsible hamburger menu button on the top-right corner. The Team page includes a brief introduction to all 3 of our team members. The Products page includes a responsive grid containing all 12 of our products. Each individual product page is reached by clicking on a product from the Products page. The product information and its order form are found on its specific page.
+Site opens up on the home page, from home.html. All other pages are reachable from the collapsible hamburger menu button on the top-right corner. The Team page includes a brief introduction to all 3 of our team members. The Products page includes a responsive grid containing all 12 of our products. Each individual product page is reached by clicking on a product from the Products page. The product information and its order form are found on its specific page.
 
 The requirements for the project are filled as followed:
 1. Our business overview, products and team info are included in the three main pages of our site: Home, Products, and Team.
