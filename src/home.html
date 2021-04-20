@@ -14,11 +14,11 @@
 </head>
 <body>
   <main>
-    <script src="index.js"></script>
+    <script src="index.js">var slideIndex = 1;</script>
     
     <!-- top bar, holds site title + menu-button -->
     <div class="navbar">
-      <a href="home.html">TITLE</a>
+      <a href="home.html">Early Birds</a>
       <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
     </div>
     <!-- end top bar -->
@@ -34,29 +34,44 @@
     </div>
     <!-- end collapsible menu -->
 
-  </main>
-</body>
-</html>
+    <div>
+      <h1>Early Birds</h1>
+    </div>
+    <div class="companyDescription">
+        <h2>By cutting out the middle man and go straight to the consumer, we are able to produce the highest quality
+        worm-on-a-string at the lowest prices. Industry disrupting. Masterfully crafted. Organically sourced.</h2>
+    </div>
 
-<!--
-<main></main>>
-  <nav class="">
-    <ul class="">
-      <li class="">
-        
-      </li>
-      <li class="">
-      
-      </li>
-      <li class="">
-        <a href="" class="">
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <main>
-    <h1>Header</h1>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./assets/worms.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./assets/worms2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./assets/worms3.jpg" style="width:100%">
+        </div>
+    </div>
+
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="slide(1)"></span>
+        <span class="dot" onclick="slide(2)"></span>
+        <span class="dot" onclick="slide(3)"></span>
+    </div>
+
+
+    <div class="bottomText">
+        <p>Copyright 2021 by Early Birds LLC. Disclaimer: Product descriptions may contain hyperboles.</p>
+    </div>
+
   </main>
 </body>
 </html>
--->
