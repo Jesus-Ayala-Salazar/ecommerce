@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Mia, James, Jesus">
+  <meta name="description" content="Ecommerce website">
+  <!--Online scripts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--Local scripts-->
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="css/style.css"> <!--local stylesheet-->
+  <title>Our Team</title>
+</head>
+<body>
+  <main>
+    <script src="index.js"></script>
+    
+    <!-- top bar, holds site title + menu-button -->
+    <div class="navbar">
+      <a href="home.html">Early Birds</a>
+      <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
+    </div>
+    <!-- end top bar -->
+
+    <!-- collapsible menu, hidden until menu-button is clicked on -->
+    <div id="menu" class="menu">
+      <button onclick="closeMenu()" class="navbar-button"><em class="material-icons sz-36 open-menu-button" id="open-menu-button">close</em></button>
+
+      <!-- side menu navigation sections-->
+      <h3><a href="home.html" onclick="closeMenu()">Home</a></h3>
+      <h3><a href="products.html" onclick="closeMenu()">Products</a></h3>
+      <h3><a href="team.html" onclick="closeMenu()">Team</a></h3>
+      <h3><a href="login.html" onclick="closeMenu()">Login / Create Account</a></h3>
+    </div>
+    <!-- end collapsible menu -->
+
+    <h1 class="center">Meet Our Team</h1>
+
+    <table class="team-table center">
+        <tbody>
+
+           <tr>
+              <th class="col-4"></th>
+              <th class="col-4"></th>
+              <th class="col-4"></th>
+            </tr>
+
+           <tr>
+             <td class="team-item">
+                <img class="team-img" src="./assets/bluecryworm.jpg" >
+                <h2>Mia Worm</h2>
+                <p>mia is a worm who enjoys working with javascript</p>
+              </td>
+              <td class="team-item">
+                 <img class="team-img" src="./assets/neongreenworm.jpg">
+                 <h2>James Worm</h2>
+                 <p>james is a worm with strong design sense</p>
+              </td>
+              <td class="team-item">
+                 <img class="team-img" src="./assets/smallorangeworm.jpg">
+                 <h2>Jesus Worm</h2>
+                 <p>jesus is a worm who is skilled at css and formatting</p>
+              </td>
+           </tr>
+
+        </tbody>
+     </table>
+
+  </main>
+</body>
+</html>

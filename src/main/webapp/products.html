@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Your name here">
+  <meta name="description" content="Ecommerce website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Online scripts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--Local scripts-->
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="css/style.css"><!--local stylesheet-->
+  <title>Products</title>
+</head>
+<body>  
+<main>
+   <script src="index.js"></script>
+    
+   <!-- top bar, holds site title + menu-button -->
+   <div class="navbar">
+     <a href="home.html">Early Birds</a>
+     <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
+   </div>
+   <!-- end top bar -->
+
+   <!-- collapsible menu, hidden until menu-button is clicked on -->
+   <div id="menu" class="menu">
+     <button onclick="closeMenu()" class="navbar-button"><em class="material-icons sz-36 open-menu-button" id="open-menu-button">close</em></button>
+
+     <!-- side menu navigation sections-->
+     <h3><a href="home.html" onclick="closeMenu()">Home</a></h3>
+     <h3><a href="products.html" onclick="closeMenu()">Products</a></h3>
+     <h3><a href="team.html" onclick="closeMenu()">Team</a></h3>
+     <h3><a href="login.html" onclick="closeMenu()">Login / Create Account</a></h3>
+   </div>
+   <!-- end collapsible menu -->
+
+   <h1 class="center">Products</h1>
+
+   <div class="center col-12 col-s-12">
+      <div class="col-3 col-s-6">
+         <a href="red-worm.html"> <img class="product-img" src="./assets/red.jpg"> </a>
+         <h3>Red Worm</h3>
+         <span>Price $4.99</span>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./orange-worm.html"> <img id="orange-worm-img" class="product-img" src="./assets/orange.jpg"> </a>
+         <h3>Orange Worm</h3>
+         <span>Price $4.99</span>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./pink-worm.html"> <img class="product-img" src="./assets/pinkworm.jpg"> </a>
+         <h3>Pink Worm</h3>
+         <span>Price $4.99</span>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./black-worm.html"> <img class="product-img" src="./assets/blackworm.jpg"> </a>
+         <h3>Black Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+   </div>
+
+   <div class="center col-12 col-s-12">
+      <div class="col-3 col-s-6">
+         <a href="./green-worm.html"> <img class="product-img" src="./assets/green.jpg"> </a>
+         <h3>Green Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./dark-blue-worm.html"> <img class="product-img" src="./assets/darkblue.jpg"> </a>
+         <h3>Dark Blue Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./white-worms.html"> <img class="product-img" src="./assets/whitewormearrings.jpg"> </a>
+         <h3>White Worms</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./assorted-worms.html"> <img class="product-img" src="./assets/assortedworms.jpg"> </a>
+         <h3>Assorted Worms</h3>
+         <p>Price $4.99</p>
+      </div>
+   </div>
+
+   <div class="center col-12 col-s-12">
+      <div class="col-3 col-s-6">
+         <a href="./purple-worm.html"> <img class="product-img" src="./assets/purple.jpg"> </a>
+         <h3>Purple Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./yellow-worm.html"> <img class="product-img" src="./assets/worm.png"> </a>
+         <h3>Yellow Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./light-green-worm.html"> <img class="product-img" src="./assets/lightgreenworm.jpg"> </a>
+         <h3>Light Green Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+
+      <div class="col-3 col-s-6">
+         <a href="./light-blue-worm.html"> <img class="product-img" src="./assets/lightblueliverworm.jpg"> </a>
+         <h3>Light Blue Worm</h3>
+         <p>Price $4.99</p>
+      </div>
+   </div>
+
+</main>
+</body>
+</html>

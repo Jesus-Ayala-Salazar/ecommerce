@@ -10,6 +10,10 @@ function closeMenu() {
     document.getElementById("open-menu-button").style.display = "none";
 }
 
+function testing(form) {
+    console.log(form)
+}
+
 function confirmOrder(form) {
     var id = form.pid.value;
     var quant = form.quantity.value;
