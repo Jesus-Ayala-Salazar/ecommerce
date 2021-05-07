@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Mia, James, Jesus">
+  <meta name="description" content="Ecommerce website">
+  <!--Online scripts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--Local scripts-->
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="css/style.css"> <!--local stylesheet-->
+  <title>Home</title>
+</head>
+<body>
+  <main>
+    <script src="index.js">var slideIndex = 1;</script>
+    
+    <!-- top bar, holds site title + menu-button -->
+    <div class="navbar">
+      <a href="home.html">Early Birds</a>
+      <button onclick="openMenu()" class="navbar-button"><em class="material-icons sz-36 menu-button" id="menu-button">menu</em></button>
+    </div>
+    <!-- end top bar -->
+
+    <!-- collapsible menu, hidden until menu-button is clicked on -->
+    <div id="menu" class="menu">
+      <button onclick="closeMenu()" class="navbar-button"><em class="material-icons sz-36 open-menu-button" id="open-menu-button">close</em></button>
+
+      <!-- side menu navigation sections-->
+      <h3><a href="home.html" onclick="closeMenu()">Home</a></h3>
+      <h3><a href="products-servlet" onclick="closeMenu()">Products</a></h3>
+<!--        <h3><a href="products.html" onclick="closeMenu()">Products</a></h3>-->
+      <h3><a href="team.html" onclick="closeMenu()">Team</a></h3>
+      <h3><a href="login.html" onclick="closeMenu()">Login / Create Account</a></h3>
+    </div>
+    <!-- end collapsible menu -->
+
+    <div>
+      <h1>Early Birds</h1>
+    </div>
+    <div class="companyDescription">
+        <h2>By cutting out the middle man and going straight to the consumer, we are able to produce the highest quality
+        worms-on-a-string at the lowest prices. Industry disrupting. Masterfully crafted. Organically sourced.</h2>
+
+        <p class="login-prompt"><a href="login.html">Log in</a> to your account to begin shopping.</p>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./assets/worms.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./assets/worms2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./assets/worms3.jpg" style="width:100%">
+        </div>
+    </div>
+
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="slide(1)"></span>
+        <span class="dot" onclick="slide(2)"></span>
+        <span class="dot" onclick="slide(3)"></span>
+    </div>
+
+
+    <div class="bottomText">
+        <p>Copyright 2021 by Early Birds LLC. Disclaimer: Product descriptions may contain hyperboles.</p>
+    </div>
+
+  </main>
+</body>
+</html>
