@@ -57,9 +57,6 @@ public class loginServlet extends HttpServlet {
 			
 			while(result.next()){
 		         pw = result.getString("pw");
-
-		         //Display values
-		         System.out.println("Password: " + pw + " | " + password);
 		     }
 		    
 			response.setContentType("text/html;charset=UTF-8");
