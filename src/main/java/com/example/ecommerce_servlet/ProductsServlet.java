@@ -25,25 +25,11 @@ import jakarta.servlet.annotation.*;
 @WebServlet(name = "productsServlet", value = "/products-servlet")
 public class ProductsServlet extends HttpServlet {
     Connection conn;
-    InitialContext ctx;
-    DataSource ds;
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
-        try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
-            conn = ds.getConnection();
-        }
-        catch (SQLException e) {
-            throw new UnavailableException("ProductsServlet.init() SQLException: " + e.getMessage());
-        }
-        catch (Exception e) {
-            throw new UnavailableException("ProductsServlet.init() newInstanceException: " + e.getMessage());
-        }
+        conn = dbConnector.connectDB();
     }
-
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,46 +38,10 @@ public class ProductsServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        // Head
-        out.println("<!doctype html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "<meta charset=\"utf-8\">\n" +
-                "<meta name=\"description\" content=\"Ecommerce website\">\n" +
-                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-        out.println("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\n");
-        out.println("<link rel=\"stylesheet\" href=\"css/style.css\">\n");
-        out.println("<title>Early Birds</title>\n");
-        out.println("</head>\n");
-
-        //  Body
-        out.println("<body>\n");
-        out.println("<main>\n");
-        out.println("<script src=\"index.js\"></script>\n");
-        out.println("<script src=\"index.js\"></script>\n");
-
-        // Top bar
-        out.println("<div class=\"navbar\">\n");
-        out.println("<a href=\"home.html\">Early Birds</a>\n");
-        out.println("<button onclick=\"openMenu()\" class=\"navbar-button\"><em class=\"material-icons sz-36 menu-button\" id=\"menu-button\">menu</em></button>\n");
-        out.println("</div>\n");
-
-        // Collapsable menu
-        out.println("<div id=\"menu\" class=\"menu\">\n");
-        out.println("<button onclick=\"closeMenu()\" class=\"navbar-button\"><em class=\"material-icons sz-36 open-menu-button\" id=\"open-menu-button\">close</em></button>\n");
-
-        // Side menu
-        out.println("<h3><a href=\"home.html\" onclick=\"closeMenu()\">Home</a></h3>\n");
-        out.println("<h3><a href=\"products.html\" onclick=\"closeMenu()\">Products</a></h3>\n");
-        out.println("<h3><a href=\"team.html\" onclick=\"closeMenu()\">Team</a></h3>\n");
-        out.println("<h3><a href=\"login.html\" onclick=\"closeMenu()\">Login / Create Account</a></h3>\n");
-        out.println("</div>\n");
-
-        // H1
-        out.println("<h1 class=\"center\">Products</h1>\n");
-
-        // Product grid opening div
-        out.println("<div class=\"center col-12 col-s-12\">\n");
+        // String builder for html page contents
+        StringBuilder contents = new StringBuilder();
+        contents.append("<h1 class=\"center\">Products</h1>\n");        // h1
+        contents.append("<div class=\"center col-12 col-s-12\">\n");    // Product grid opening div
 
         // Individual product divs
         Statement stmt = null;
@@ -126,12 +76,12 @@ public class ProductsServlet extends HttpServlet {
                 outputStream.close();
 
                 // Create individual product divs
-                out.println("  <div class=\"col-3 col-s-6\">\n");
-                out.println("    <a href=\"product-details-servlet?productId=" + productId + "\"> " +
+                contents.append("  <div class=\"col-3 col-s-6\">\n");
+                contents.append("    <a href=\"product-details-servlet?productId=" + productId + "\"> " +
                         "<img class=\"product-img\" src=\"data:image/jpg;base64," + base64Image + "\"> </a>\n");
-                out.println("    <h3>" + name + "</h3>\n");
-                out.format("<span>Price $%.2f</span>\n", price);
-                out.println("  </div>\n");
+                contents.append("    <h3>" + name + "</h3>\n");
+                contents.append(String.format("<span>Price $%.2f</span>\n", price));
+                contents.append("  </div>\n");
             }
             // Clean-up environment
             rs.close();
@@ -151,10 +101,11 @@ public class ProductsServlet extends HttpServlet {
         }
 
         // Closing tags
-        out.println("</div>\n");
-        out.println("</main>\n");
-        out.println("</body>\n");
-        out.println("</html>\n");
+        contents.append("</div>\n");
+        contents.append("</main>\n");
+        contents.append("</body>\n");
+        contents.append("</html>\n");
+        out.println(HTMLbasic.create_page("Products", contents.toString()));
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)

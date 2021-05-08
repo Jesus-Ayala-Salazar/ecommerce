@@ -3,8 +3,6 @@ package com.example.ecommerce_servlet;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 /* These imports are for Glassfish versions that don't use jakarta
  * and for other application servers (Tomcat)
@@ -17,7 +15,6 @@ import javax.sql.DataSource;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.UnavailableException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -25,23 +22,11 @@ import jakarta.servlet.annotation.*;
 @WebServlet(name = "productDetailsServlet", value = "/product-details-servlet")
 public class ProductDetailsServlet extends HttpServlet {
     Connection conn;
-    InitialContext ctx;
-    DataSource ds;
+
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
-        try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource");
-            conn = ds.getConnection();
-        }
-        catch (SQLException e) {
-            throw new UnavailableException("ProductsServlet.init() SQLException: " + e.getMessage());
-        }
-        catch (Exception e) {
-            throw new UnavailableException("ProductsServlet.init() newInstanceException: " + e.getMessage());
-        }
+        conn = dbConnector.connectDB();
     }
 
 
@@ -53,40 +38,8 @@ public class ProductDetailsServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        // Head
-        out.println("<!doctype html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "<meta charset=\"utf-8\">\n" +
-                "<meta name=\"description\" content=\"Ecommerce website\">\n" +
-                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-        out.println("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\n");
-        out.println("<link rel=\"stylesheet\" href=\"css/style.css\">\n");
-        out.println("<title>Early Birds</title>\n");
-        out.println("</head>\n");
-
-        //  Body
-        out.println("<body>\n");
-        out.println("<main>\n");
-        out.println("<script src=\"index.js\"></script>\n");
-        out.println("<script src=\"index.js\"></script>\n");
-
-        // Top bar
-        out.println("<div class=\"navbar\">\n");
-        out.println("<a href=\"home.html\">Early Birds</a>\n");
-        out.println("<button onclick=\"openMenu()\" class=\"navbar-button\"><em class=\"material-icons sz-36 menu-button\" id=\"menu-button\">menu</em></button>\n");
-        out.println("</div>\n");
-
-        // Collapsable menu
-        out.println("<div id=\"menu\" class=\"menu\">\n");
-        out.println("<button onclick=\"closeMenu()\" class=\"navbar-button\"><em class=\"material-icons sz-36 open-menu-button\" id=\"open-menu-button\">close</em></button>\n");
-
-        // Side menu
-        out.println("<h3><a href=\"home.html\" onclick=\"closeMenu()\">Home</a></h3>\n");
-        out.println("<h3><a href=\"products.html\" onclick=\"closeMenu()\">Products</a></h3>\n");
-        out.println("<h3><a href=\"team.html\" onclick=\"closeMenu()\">Team</a></h3>\n");
-        out.println("<h3><a href=\"login.html\" onclick=\"closeMenu()\">Login / Create Account</a></h3>\n");
-        out.println("</div>\n");
+        // String builder for html page contents
+        StringBuilder contents = new StringBuilder();
 
         // Query database for product details using productId parameter from Product-Servlet
         Statement stmt = null;
@@ -121,33 +74,46 @@ public class ProductDetailsServlet extends HttpServlet {
 
                 // Write product details to page
                 // H1
-                out.println("<h1>" + name + "</h1>\n");
+                contents.append("<h1>" + name + "</h1>\n");
 
                 // Row for product description, image, id, price, and add to cart button
-                out.println("<div class=\"center\">\n");
+                contents.append("<div class=\"center\">\n");
 
                 // Image
-                out.println("  <div class=\"col-6 col-s-6\">\n");
-                out.println("    <img class=\"product-img img-zoom\" src=\"data:image/jpg;base64," + base64Image + "\">\n");
-                out.println("  </div>");
+                contents.append("  <div class=\"col-6 col-s-6\">\n");
+                contents.append("    <img class=\"product-img img-zoom\" src=\"data:image/jpg;base64," + base64Image + "\">\n");
+                contents.append("  </div>");
 
                 // Description
-                out.println("  <div class=\"col-6 col-s-6\">\n");
-                out.println("    <h3>Product Description</h3>\n");
-                out.println("    <p>" + desc + "</p>\n");
-                out.println("  </div>\n");
+                contents.append("  <div class=\"col-6 col-s-6\">\n");
+                contents.append("    <h3>Product Description</h3>\n");
+                contents.append("    <p>" + desc + "</p>\n");
+                contents.append("  </div>\n");
 
                 // Price
-                out.println("  <div class=\"col-6 col-s-12\">\n");
-                out.format(   "<p>Price: $%.2f</p>", price);
-                out.println("    <p>Product ID: " + productId + "</p>");
-                out.println("  </div>\n");
+                contents.append("  <div class=\"col-6 col-s-12\">\n");
+                contents.append(String.format(   "<p>Price: $%.2f</p>", price));
+                contents.append("    <p>Product ID: " + productId + "</p>");
+                contents.append("  </div>\n");
+
+                // Add to cart button
+                contents.append("<form id=\"addToCart\" method=\"POST\" action=\"addToCartServlet\">\r\n"
+                        + "        <div class=\"col-6 col-s-6 center\">\r\n"
+                        + "            <label for=\"quantity\">Quantity: </label>\r\n"
+                        + "            <input type=\"number\" name=\"quantity\" value=\"1\" min=\"1\">\r\n"
+                        + "            <input type=\"number\" name=\"pid\" value=\"" + productId + "\" style=\"display:none\">\r\n"
+                        + "        </div>\r\n"
+                        + "        <div class=\"submit col-6 col-s-6 center\">\r\n"
+                        + "            <input type=\"submit\" value=\"Add to Cart\">\r\n"
+                        + "        </div>\r\n"
+                        + "    </form>");
 
                 // Closing tags
-                out.println("</div>\n");
-                out.println("</main>\n");
-                out.println("</body>\n");
-                out.println("</html>\n");
+                contents.append("</div>\n");
+                contents.append("</main>\n");
+                contents.append("</body>\n");
+                contents.append("</html>\n");
+                out.println(HTMLbasic.create_page(name, contents.toString()));
             }
             // Clean-up environment
             rs.close();

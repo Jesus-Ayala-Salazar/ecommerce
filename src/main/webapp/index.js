@@ -28,7 +28,7 @@ function confirmOrder(form) {
 
     var body = name + ",%0d%0aYour order from Early Birds has been confirmed. Order information provided below.%0d%0aProduct ID: " + form.pid.value + "%0d%0aQuanitity: " + form.quantity.value + "%0d%0aShip to: " + addr + "%0d%0aShipping method: " + form.ship.value + "%0d%0aBilled to: " + card + "%0d%0aPhone Number: " + form.phone.value + "%0d%0aThank you for your patronage!";
 
-    var mailto = "mailto:" + email + "?subject=" + subject + "&body=" + body;
+    // var mailto = "mailto:" + email + "?subject=" + subject + "&body=" + body;
     if (id == "" || email == "" || quant == "" || phonenum == "" || name == " " || cardEntry == "" || code == ""
         || street == "" || city == "" || state == "" || zipcode == "")
     {
@@ -61,8 +61,9 @@ function confirmOrder(form) {
         alert("Zipcode must be a 5 digit number.");
         return false;
     }
-    else
-    {window.open(mailto);}
+    else { // {window.open(mailto);}
+
+    }
 }
 
 var slideIndex = 1;
