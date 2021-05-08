@@ -23,10 +23,6 @@ public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Connection conn;
-	final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	final String DB_URL="jdbc:mysql://localhost:3306/inf124";
-    private String DB_USER = "root";
-    private String DB_PW = "mv@72137628";
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

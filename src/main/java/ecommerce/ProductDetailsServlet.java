@@ -71,7 +71,7 @@ public class ProductDetailsServlet extends HttpServlet {
 
         // Side menu
         out.println("<h3><a href=\"home.html\" onclick=\"closeMenu()\">Home</a></h3>\n");
-        out.println("<h3><a href=\"products.html\" onclick=\"closeMenu()\">Products</a></h3>\n");
+        out.println("<h3><a href=\"products-servlet\" onclick=\"closeMenu()\">Products</a></h3>\n");
         out.println("<h3><a href=\"team.html\" onclick=\"closeMenu()\">Team</a></h3>\n");
         out.println("<h3><a href=\"login.html\" onclick=\"closeMenu()\">Login / Create Account</a></h3>\n");
         out.println("</div>\n");

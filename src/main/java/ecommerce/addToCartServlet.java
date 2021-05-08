@@ -47,7 +47,7 @@ public class addToCartServlet extends HttpServlet {
 			 PrintWriter out = response.getWriter();
 		        
 		     String contents = "<h1>Success!</h1><p class=\"center\">Your worm has been added to your shopping cart.</p>" 
-		     + "<p class=\"center\"><a href=\"products-servlet\">Continue Shopping</a> or <a href=\"cart.html\">Go To Cart</a></p>";
+		     + "<p class=\"center\"><a href=\"products-servlet\">Continue Shopping</a> or <a href=\"CartServlet\">Go To Cart</a></p>";
 		        
 		     out.println(HTMLbasic.create_page("Welcome", contents));
 		}
