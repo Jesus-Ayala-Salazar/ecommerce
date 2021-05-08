@@ -31,32 +31,37 @@ public class ThankYou extends HttpServlet{
             throws ServletException, IOException {
 
 
-        // Set response content type
+    	// Set response content type
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        StringBuilder contents = new StringBuilder();
 
         // String builder for html page contents
-        StringBuilder contents = new StringBuilder();
+
+        // H1
 
         String shipping = request.getParameter("ship");
         String fname = request.getParameter("fname");
         String lname = request.getParameter("lname");
         String phone = request.getParameter("phone");
-        String email = request.getParameter("email"); 
-        String address = request.getParameter("bldg") + " " + request.getParameter("street") + ", " + 
+        String email = request.getParameter("email");
+        String address = request.getParameter("bldg") + " " + request.getParameter("street") + ", " +
                 request.getParameter("city") + ", " + request.getParameter("state") + ", " + request.getParameter("zipcode");
-        String total = request.getParameter("total"); 
-        
+        HttpSession session = request.getSession(false);
+        Float total = (Float) session.getAttribute("total");
+
+        contents.append("<div class=\"center\">\n");
         contents.append("<h1>Thank you for your order!</h1>\n");
-        contents.append("<div><b>First Name:</b> " + fname + "</div>\n");
-        contents.append("<div><b>Last Name:</b> " + lname + "</div>\n");
-        contents.append("<div><b>Phone:</b> " + phone + "</div>\n");
-        contents.append("<div><b>Email:</b> " + email + "</div>\n");
-        contents.append("<div><b>Address:</b>  " + address + "</div>\n");
-        contents.append("<div><b>Order Total:</b>  $" + total + "</div>\n");
+        contents.append("<body>\n");
+        contents.append("<p>First Name: " + fname + "</p>\n");
+        contents.append("<p>Last Name: " + lname + "</p>\n");
+        contents.append("<p>Phone: " + phone + "</p>\n");
+        contents.append("<p>Email: " + email + "</p>\n");
+        contents.append("<p>Address:  " + address + "</p>\n");
+        contents.append(String.format("<p>The total of your order is: $%.2f</p>\n", total));
+        contents.append("</div>");
         
-        
-        out.println(HTMLbasic.create_page("Order Confirmed", contents.toString()));
+        out.println(HTMLbasic.create_page("Thank You!", contents.toString()));
     }
         
     public void doGet(HttpServletRequest request, HttpServletResponse response)

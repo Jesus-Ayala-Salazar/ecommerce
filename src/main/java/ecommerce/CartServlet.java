@@ -119,6 +119,8 @@ public class CartServlet extends HttpServlet{
                 }catch(SQLException ignore) {}// nothing we can do
             }
         }
+        
+        session.setAttribute("total",total);
 
         // Close table
         contents.append(String.format("<tr><td></td><td></td><td></td><td>Total: $%.2f</td></tr>\n", total));
@@ -130,9 +132,8 @@ public class CartServlet extends HttpServlet{
                 "        <h2>Order Form</h2>\n" +
                 "    </div>\n" +
                 "\n" +
-                "    <form action=\"ThankYou\" id=\"orderform\" method=\"post\" class=\"center\">\n" +
+                "    <form action=\"OrderDetailsServlet\" id=\"orderform\" method=\"get\" class=\"center\">\n" +
                 "\n" +
-                "	<input type=\"number\" name=\"total\" value=\"" + total + "\" style=\"display:none\">\r\n" +
                 "        <!-- Row -->\n" +
                 "        <div class=\"col-12 col-s-12 order-table\">\n" +
                 "            <div class=\"col-12 col-s-12\">\n" +
