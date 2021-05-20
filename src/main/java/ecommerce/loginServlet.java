@@ -69,9 +69,8 @@ public class loginServlet extends HttpServlet {
 			Client client = ClientBuilder.newClient(config);
 			WebTarget target = client.target(getBaseURI());
 
-			String username = request.getParameter("username");
 			String jsonResponse =
-                target.path("v1").path("api").path("todos").path("username").
+                target.path("v1").path("api").path("todos").path(username).
                         request(). //send a request
                         accept(MediaType.APPLICATION_JSON). //specify the media type of the response
                         get(String.class); // use the get method and return the response as a string
