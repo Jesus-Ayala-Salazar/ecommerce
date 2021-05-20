@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+import ecommerce.UserResource;
+
 import ecommerce.HTMLbasic;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -15,6 +17,22 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.UnavailableException;
 
+// RESTful Web Services
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URI;
+import java.util.List;
+
+// Jersey
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference; 
+import org.glassfish.jersey.client.ClientConfig;
+
 /**
  * Servlet implementation class loginServlet
  */
@@ -22,7 +40,7 @@ import jakarta.servlet.UnavailableException;
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	Connection conn;
+	// Connection conn;
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,24 +54,42 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.conn = dbConnector.connectDB();
+
+		// this.conn = dbConnector.connectDB();
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		PreparedStatement st;
+		// PreparedStatement st;
 		try {
-			st = conn.prepareStatement("SELECT pw FROM users WHERE username=?");
-			String pw = "";
-		
-			st.setString(1, request.getParameter("username"));
+			// Replace with API calls
+			// st = conn.prepareStatement("SELECT pw FROM users WHERE username=?");
 
-			ResultSet result = st.executeQuery();
+			ClientConfig config = new ClientConfig();
+			Client client = ClientBuilder.newClient(config);
+			WebTarget target = client.target(getBaseURI());
+
+			String username = request.getParameter("username");
+			String jsonResponse =
+                target.path("v1").path("api").path("todos").path("username").
+                        request(). //send a request
+                        accept(MediaType.APPLICATION_JSON). //specify the media type of the response
+                        get(String.class); // use the get method and return the response as a string
+
+			ObjectMapper objectMapper = new ObjectMapper(); // This object is from the jackson library
+
+			User user = objectMapper.readValue(jsonResponse, User.class);
+
+			String pw = user.getPassword();
+			int id	 = user.getUserId();
+		
+			// st.setString(1, request.getParameter("username"));
+
+			// ResultSet result = st.executeQuery();
 			
-			while(result.next()){
-		         pw = result.getString("pw");
-		     }
+			// while(result.next()){
+		   //       pw = result.getString("pw");
+		   //   }
 		    
 			response.setContentType("text/html;charset=UTF-8");
 	        
@@ -70,31 +106,20 @@ public class loginServlet extends HttpServlet {
 	        	out.println(HTMLbasic.create_page("Invalid Login",contents));
 	        }
 	        
-	        result.close();
-	        st.close();
-	        conn.close();
+	      //   result.close();
+	      //   st.close();
+	      //   conn.close();
 	        
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		/*
-		if( username == "aaa" && password == "no" ) {
-			Cookie loginCookie = new Cookie("user",username);
-			
-			loginCookie.setMaxAge(45*60); // login session = 45min
-			
-			response.addCookie(loginCookie);
-			response.sendRedirect("LoginSuccess.jsp");
-		} else {
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-			PrintWriter out= response.getWriter();
-			out.println("<font color=red>Incorrect username or password.</font>");
-			rd.include(request, response);
-		}
-		*/
-
 	}
+
+	private static URI getBaseURI() {
+
+		//Change the URL here to make the client point to your service.
+		return UriBuilder.fromUri("http://localhost:8080/UserService").build();
+  }
 }
 
