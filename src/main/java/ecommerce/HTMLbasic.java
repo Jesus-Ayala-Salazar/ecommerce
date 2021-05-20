@@ -26,7 +26,7 @@ public class HTMLbasic {
 				+ "    <div id=\"menu\" class=\"menu\">\r\n"
 				+ "      <button onclick=\"closeMenu()\" class=\"navbar-button\"><em class=\"material-icons sz-36 open-menu-button\" id=\"open-menu-button\">close</em></button>\r\n"
 				+ "      <h3><a href=\"home.html\" onclick=\"closeMenu()\">Home</a></h3>\r\n"
-				+ "      <h3><a href=\"products-servlet\" onclick=\"closeMenu()\">Products</a></h3>\r\n"
+				+ "      <h3><a href=\"productsPage.jsp\" onclick=\"closeMenu()\">Products</a></h3>\r\n"
 				+ "      <h3><a href=\"team.html\" onclick=\"closeMenu()\">Team</a></h3>\r\n"
 				+ "      <h3><a href=\"login.html\" onclick=\"closeMenu()\">Login / Create Account</a></h3>\r\n"
 				+ "    </div>\r\n"

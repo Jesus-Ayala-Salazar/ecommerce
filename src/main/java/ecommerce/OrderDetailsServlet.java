@@ -110,12 +110,12 @@ public class OrderDetailsServlet extends HttpServlet {
     			e.printStackTrace();
     		} 
         	
-            RequestDispatcher rd = request.getRequestDispatcher("ThankYou");
+            RequestDispatcher rd = request.getRequestDispatcher("thankYou.jsp");
             rd.forward(request, response);
             
         } else {
             out.println(HTMLbasic.create_page("Shopping Cart", contents.toString()));
-            RequestDispatcher rd = request.getRequestDispatcher("CartServlet");
+            RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
             rd.include(request, response);
         }
     }

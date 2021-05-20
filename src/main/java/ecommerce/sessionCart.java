@@ -11,6 +11,10 @@ public class sessionCart {
 		this.user= username;
 	}
 	
+	public ArrayList getCart() {
+		return this.cart;
+	}
+	
 	public void addToCart(int pid, int q) {
 		int[] item = {pid,q};
 		cart.add(item);

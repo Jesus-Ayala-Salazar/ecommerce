@@ -74,14 +74,14 @@ public class welcome extends HttpServlet {
 
         // Side menu
         out.println("<h3><a href=\"home.html\" onclick=\"closeMenu()\">Home</a></h3>\n");
-        out.println("<h3><a href=\"products-servlet\" onclick=\"closeMenu()\">Products</a></h3>\n");
+        out.println("<h3><a href=\"productsPage.jsp\" onclick=\"closeMenu()\">Products</a></h3>\n");
         out.println("<h3><a href=\"team.html\" onclick=\"closeMenu()\">Team</a></h3>\n");
         out.println("<h3><a href=\"login.html\" onclick=\"closeMenu()\">Login / Create Account</a></h3>\n");
         out.println("</div>\n");
 
         // H1
         String user = (String)session.getAttribute("user");
-        out.println("<h1>Hello, " + user + ".</h1><p class=\"center\"><a href='products-servlet'>Click here</a> to begin shopping.</p>" 
+        out.println("<h1>Hello, " + user + ".</h1><p class=\"center\"><a href='productsPage.jsp'>Click here</a> to begin shopping.</p>" 
         		+ "<p class=\"center\"><a href=\"logoutServlet\"><button>Log Out</button></a></p>");
         
         // Previously Purchased Table
