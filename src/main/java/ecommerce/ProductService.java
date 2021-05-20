@@ -2,6 +2,7 @@ package ecommerce;
 
 import ecommerce.DatabaseUtils;
 import ecommerce.Product;
+import jakarta.servlet.UnavailableException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,7 +15,7 @@ public class ProductService {
 
     private final static String ALL_PRODUCTS_QUERY = "SELECT * FROM products";
 
-    public static Product getProductById(int id) {
+    public static Product getProductById(int id) throws UnavailableException {
         //Get a new connection object before going forward with the JDBC invocation.
         Connection connection = dbConnector.connectDB();
         ResultSet resultSet = DatabaseUtils.retrieveQueryResults(connection, ALL_PRODUCTS_QUERY + " WHERE productId = " + id);
@@ -51,7 +52,7 @@ public class ProductService {
 
     }
 
-    public static List<Product> getAllProducts() {
+    public static List<Product> getAllProducts() throws UnavailableException {
         List<Product> products = new ArrayList<Product>();
 
         Connection connection = dbConnector.connectDB();
@@ -86,7 +87,7 @@ public class ProductService {
         return products;
     }
 
-    public static boolean AddProduct(Product p) {
+    public static boolean AddProduct(Product p) throws UnavailableException {
 
         String sql = "INSERT INTO products  (description, price, name, productURL)" +
                 "VALUES (?, ?, ?, ?)";
@@ -98,7 +99,7 @@ public class ProductService {
 
     }
 
-    public static boolean updateProduct(Product p) {
+    public static boolean updateProduct(Product p) throws UnavailableException {
 
         String sql = "UPDATE products SET description=?, price=?, name=?, productURL=? WHERE productId=?;";
 
@@ -117,7 +118,7 @@ public class ProductService {
 
     }
 
-    public static boolean deleteProduct(Product p) {
+    public static boolean deleteProduct(Product p) throws UnavailableException {
 
         String sql = "DELETE FROM products WHERE productId=?;";
 

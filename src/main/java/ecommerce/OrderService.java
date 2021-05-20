@@ -3,6 +3,7 @@ package ecommerce;
 import ecommerce.DatabaseUtils;
 
 import ecommerce.Orders;
+import jakarta.servlet.UnavailableException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,9 +17,12 @@ public class OrderService {
 
     private final static String ALL_ORDERS_QUERY = "SELECT * FROM orders";
 
-    public static Orders getOrderById(int id) {
+    public static Orders getOrderById(int id) throws UnavailableException {
         //Get a new connection object before going forward with the JDBC invocation.
-        Connection connection = dbConnector.connectDB();
+        Connection connection;
+		
+		connection = dbConnector.connectDB();
+		
         ResultSet resultSet = DatabaseUtils.retrieveQueryResults(connection, ALL_ORDERS_QUERY + " orderId = " + id);
 
         if (resultSet != null) {
@@ -52,7 +56,7 @@ public class OrderService {
 
     }
 
-    public static List<Orders> getAllOrders() {
+    public static List<Orders> getAllOrders() throws UnavailableException {
         List<Orders> allOrders = new ArrayList<Orders>();
 
         Connection connection = dbConnector.connectDB();
@@ -85,7 +89,7 @@ public class OrderService {
         return allOrders;
     }
 
-    public static boolean AddOrder(Orders order) {
+    public static boolean AddOrder(Orders order) throws UnavailableException {
 
         String sql = "INSERT INTO Orders  (customerId, productId, quantity)" +
                 "VALUES (?, ?, ?)";
@@ -99,7 +103,7 @@ public class OrderService {
 
     }
 
-    public static boolean updateOrders(Orders order) {
+    public static boolean updateOrders(Orders order) throws UnavailableException {
 
         String sql = "UPDATE orders SET customerId=?, productId=?, quantity=?, WHERE orderId=?;";
 
@@ -122,7 +126,7 @@ public class OrderService {
 
     }
 
-    public static boolean deleteOrder(Orders order) {
+    public static boolean deleteOrder(Orders order) throws UnavailableException {
 
         String sql = "DELETE FROM orders WHERE orderId=?;";
 
