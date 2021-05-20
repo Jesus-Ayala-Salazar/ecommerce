@@ -1,6 +1,7 @@
 package ecommerce;
 
 import ecommerce.dbConnector;
+import jakarta.servlet.UnavailableException;
 import ecommerce.DatabaseUtils;
 import ecommerce.User;
 
@@ -17,7 +18,7 @@ public class UserService {
 
 
     // Used on servlets where SQL statement: "SELECT */pw FROM users..." is used
-    public static User getUserByUserName(String username) {
+    public static User getUserByUserName(String username) throws UnavailableException {
         //Get a new connection object before going forward with the JDBC invocation.
         Connection connection = dbConnector.connectDB();
         ResultSet resultSet = DatabaseUtils.retrieveQueryResults(connection, QUERY + " WHERE username = " + username);
@@ -50,7 +51,7 @@ public class UserService {
         return null;
     }
 
-    public static boolean AddUser(User user) {
+    public static boolean AddUser(User user) throws UnavailableException {
 
         String sql = "INSERT INTO users  (username, pw)" +
                 "VALUES (?, ?)";

@@ -2,6 +2,7 @@ package ecommerce;
 
 import ecommerce.Product;
 import ecommerce.ProductService;
+import jakarta.servlet.UnavailableException;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -20,7 +21,7 @@ public class ProductResource {
     @Path("{id}")
     @GET
     @Produces( { MediaType.APPLICATION_JSON }) //This provides only JSON responses
-    public Response getProductById(@PathParam("id") int id/* The {id} placeholder parameter is resolved */) {
+    public Response getProductById(@PathParam("id") int id/* The {id} placeholder parameter is resolved */) throws UnavailableException {
         //invokes the DB method which will fetch a product item object by id
         Product p = ProductService.getProductById(id);
 
@@ -37,7 +38,7 @@ public class ProductResource {
     // Since there is no @PathParam mentioned, the /products as a relative path and a GET request will invoke this method.
     @GET
     @Produces( { MediaType.APPLICATION_JSON })
-    public Response getAllProducts() {
+    public Response getAllProducts() throws UnavailableException {
         List<Product> productList = ProductService.getAllProducts();
 
         if(productList == null || productList.isEmpty()) {
@@ -51,7 +52,7 @@ public class ProductResource {
     // Since there is no @PathParam mentioned, the /todos as a relative path and a POST request will invoke this method.
     @POST
     @Consumes({MediaType.APPLICATION_JSON}) //This method accepts a request of the JSON type
-    public Response addProduct(Product p) {
+    public Response addProduct(Product p) throws UnavailableException {
 
         //The todo object here is automatically constructed from the json request. Jersey is so cool!
         if(ProductService.AddProduct(p)) {
@@ -71,7 +72,7 @@ public class ProductResource {
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response updateProduct(@PathParam("id") int id, Product p) {
+    public Response updateProduct(@PathParam("id") int id, Product p) throws UnavailableException {
 
         // Retrieve the todo that you will need to change
         Product current = ProductService.getProductById(id);
@@ -119,7 +120,7 @@ public class ProductResource {
     @DELETE
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-    public Response deleteProduct(@PathParam("id") int id) {
+    public Response deleteProduct(@PathParam("id") int id) throws UnavailableException {
 
         //Retrieve the todo_object that you want to delete.
         Product current = ProductService.getProductById(id);

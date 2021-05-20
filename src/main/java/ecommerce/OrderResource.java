@@ -1,9 +1,9 @@
 
+package ecommerce;
 
-
-import com.uci.todorestservice.model.Orders;
-
-import com.uci.todorestservice.service.OrderService;
+import ecommerce.Orders;
+import jakarta.servlet.UnavailableException;
+import ecommerce.OrderService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -18,7 +18,7 @@ public class OrderResource {
     @Path("{id}")
     @GET
     @Produces( { MediaType.APPLICATION_JSON }) //This provides only JSON responses
-    public Response getOrderById(@PathParam("id") int id/* The {id} placeholder parameter is resolved */) {
+    public Response getOrderById(@PathParam("id") int id/* The {id} placeholder parameter is resolved */) throws UnavailableException {
         //invokes the DB method which will fetch a todo_list item object by id
         Orders order = OrderService.getOrderById(id);
 
@@ -34,7 +34,7 @@ public class OrderResource {
 
     @GET
     @Produces( { MediaType.APPLICATION_JSON })
-    public Response getAllOrders() {
+    public Response getAllOrders() throws UnavailableException {
         List<Orders> orderList = OrderService.getAllOrders();
 
         if(orderList == null || orderList.isEmpty()) {
@@ -47,7 +47,7 @@ public class OrderResource {
 
     @POST
     @Consumes({MediaType.APPLICATION_JSON}) //This method accepts a request of the JSON type
-    public Response addOrder(Orders order) {
+    public Response addOrder(Orders order) throws UnavailableException {
 
         //The todo object here is automatically constructed from the json request. Jersey is so cool!
         if(OrderService.AddOrder(order)) {
@@ -87,7 +87,7 @@ public class OrderResource {
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response updateOrder(@PathParam("id") int id, Orders order) {
+    public Response updateOrder(@PathParam("id") int id, Orders order) throws UnavailableException {
 
         // Retrieve the todo that you will need to change
         Orders current = OrderService.getOrderById(id);
@@ -132,7 +132,7 @@ public class OrderResource {
     @DELETE
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED, MediaType.APPLICATION_JSON})
-    public Response deleteOrder(@PathParam("id") int id) {
+    public Response deleteOrder(@PathParam("id") int id) throws UnavailableException {
 
         //Retrieve the todo_object that you want to delete.
         Orders current = OrderService.getOrderById(id);
