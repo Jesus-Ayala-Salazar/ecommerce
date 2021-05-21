@@ -6,7 +6,9 @@ The requirements for the project are filled as followed:
 1. We have a JSP (productsPage.jsp) that is dedicated to displaying all our products by pulling information from a database. This was reimplemented to use JSP for loops to fetch and render the list of products.
    We have a JSP (thankYou.jsp) for showing order confirmation. This was reimplemented with JSP to show request parameters to user.
    We have a JSP (cart.jsp) for showing cart inforation. This was reimplemented with JSP to access cart variables and show them to user in table form.
+
 2. On the cart.jsp page, our order form dynamically updates the page's information once a zip code is input. The state and city fields of the form are autofilled with information from our backend database based on the inputted zipcode. Additionally, the Tax and Total fields in the table that holds all the cart items are updated once a zipcode is put in as well, also using information from our backend databases. Tax is calcualted based on the inputted zipcode, and the Tax field and Total field are adjusted thusly.
+
 3. We created all our our REST services and made sure they were able to interact with our backend database, but we couldn't manage to integrate them fully with our site. All the files have been included in our project recardless.
 
 
